@@ -291,4 +291,11 @@ PRODUCT_PACKAGES += \
     libmrdump \
     mrdump_tool
 
+# CM14 mtk symbols
+PRODUCT_PACKAGES += \
+    libmtk_symbols
 	
+# Force linking shim
+LINKER_FORCED_SHIM_LIBS := /system/lib/libcamera_client.so|libmtk_symbols.so
+LINKER_FORCED_SHIM_LIBS := /system/vendor/lib/libcam_platform.so|libmtk_symbols.so
+

@@ -174,6 +174,9 @@ TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 # Enable Minikin text layout engine (will be the default soon)
 USE_MINIKIN := true
 
+# Shim
+TARGET_LDPRELOAD += libmtk_symbols.so
+
 # CWM
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/root/recovery.fstab
 TARGET_PREBUILT_RECOVERY_KERNEL := $(LOCAL_PATH)/rootdir/kernel
