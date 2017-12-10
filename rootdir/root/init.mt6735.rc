@@ -14,6 +14,13 @@ on early-init
     write /sys/class/leds/lcd-backlight/trigger "backlight"
 
 on init
+    # export LD_SHIM_LIBS
+    export LD_PRELOAD "libmtk_symbols.so"
+    export LD_SHIM_LIBS /system/lib/libcamera_client.so|libmtk_symbols.so
+    export LD_SHIM_LIBS /system/lib/libcam_platform.so|libmtk_symbols.so
+	export LD_SHIM_LIBS /system/lib64/libcamera_client.so|libmtk_symbols.so
+    export LD_SHIM_LIBS /system/lib64/libcam_platform.so|libmtk_symbols.so
+
     # BATTERY proc
     chown shell system /proc/mtk_battery_cmd/current_cmd
     chown shell system /proc/mtk_battery_cmd/discharging_cmd
